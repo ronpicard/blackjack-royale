@@ -2,6 +2,12 @@
 
 All notable changes to Blackjack Royale are documented in this file, following the [Keep a Changelog](https://keepachangelog.com/) format.
 
+## [1.1.0] - 2026-09-25
+
+### Added
+
+- A card overlay in the middle of the screen: as each card lands on the table, a large copy of it fades in, with the dealer's hole card shown face down until it is revealed, every hand's total and bet, the active hand outlined in gold, and the outcome colouring the hand once it settles. It clears when you start a new bet.
+
 ## [1.0.0] - 2026-09-25
 
 ### Added

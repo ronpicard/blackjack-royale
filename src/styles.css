@@ -1087,6 +1087,181 @@ button {
   animation: fade-in 0.3s var(--ease-standard);
 }
 
+/* Card overlay: large 2D copies of the cards in play ------------------------ */
+
+.card-overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  max-width: calc(100vw - 28px);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s var(--ease-standard);
+  z-index: 2;
+}
+
+.card-overlay-visible {
+  opacity: 1;
+}
+
+.card-overlay-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 14px;
+  border-radius: var(--radius-md);
+  background: rgba(8, 20, 14, 0.62);
+  border: 1px solid rgba(212, 175, 55, 0.22);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+.card-overlay-row-active {
+  border-color: var(--color-gold-bright);
+  box-shadow: var(--glow-gold), 0 8px 28px rgba(0, 0, 0, 0.45);
+}
+
+.card-overlay-row.hud-outcome-win,
+.card-overlay-row.hud-outcome-blackjack {
+  border-color: rgba(120, 220, 140, 0.7);
+}
+
+.card-overlay-row.hud-outcome-push {
+  border-color: rgba(245, 236, 217, 0.5);
+}
+
+.card-overlay-row.hud-outcome-lose {
+  border-color: rgba(230, 90, 90, 0.7);
+}
+
+.card-overlay-label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 68px;
+  line-height: 1.2;
+}
+
+.card-overlay-title {
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-dim);
+}
+
+.card-overlay-total {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--color-gold-bright);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.card-overlay-meta {
+  font-size: 0.72rem;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+.card-overlay-row.hud-outcome-win .card-overlay-meta,
+.card-overlay-row.hud-outcome-blackjack .card-overlay-meta {
+  color: #9be3a8;
+  font-weight: 700;
+}
+
+.card-overlay-row.hud-outcome-lose .card-overlay-meta {
+  color: #f08a8a;
+  font-weight: 700;
+}
+
+.card-overlay-cards {
+  display: flex;
+  align-items: center;
+}
+
+.card-face {
+  position: relative;
+  width: 62px;
+  height: 88px;
+  border-radius: 7px;
+  background: #f7f2e6;
+  border: 1px solid rgba(20, 20, 20, 0.35);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1;
+  user-select: none;
+  /* The card lands on the felt over DEAL_SECONDS, then its copy fades in here. */
+  animation: card-fade-in 0.45s var(--ease-standard) 0.35s both;
+}
+
+.card-face + .card-face {
+  margin-left: -18px;
+}
+
+.card-face-red {
+  color: #b3121b;
+}
+
+.card-face-black {
+  color: #141414;
+}
+
+.card-face-corner {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.95rem;
+}
+
+.card-face-corner-bottom {
+  top: auto;
+  left: auto;
+  right: 6px;
+  bottom: 6px;
+  transform: rotate(180deg);
+}
+
+.card-face-suit {
+  font-size: 0.8rem;
+  font-family: serif;
+}
+
+.card-face-pip {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-family: serif;
+}
+
+.card-back {
+  background: repeating-linear-gradient(45deg, #5e1220 0 6px, #7a1a2c 6px 12px);
+  box-shadow: inset 0 0 0 4px #f7f2e6, inset 0 0 0 5px #d4af37, 0 3px 10px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes card-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 .result-banner {
   position: fixed;
   top: 30%;
@@ -1237,6 +1412,33 @@ button {
 
   .result-banner {
     padding: 18px 24px;
+  }
+
+  .card-overlay {
+    top: 46%;
+    gap: 10px;
+  }
+
+  .card-overlay-row {
+    gap: 10px;
+    padding: 6px 10px;
+  }
+
+  .card-overlay-label {
+    min-width: 56px;
+  }
+
+  .card-face {
+    width: 48px;
+    height: 68px;
+  }
+
+  .card-face + .card-face {
+    margin-left: -14px;
+  }
+
+  .card-face-pip {
+    font-size: 1.5rem;
   }
 }
 

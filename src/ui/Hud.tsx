@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { CUT_CARD_REMAINING } from '../game/cards.ts'
 import type { ChipValue, HandOutcome } from '../game/types.ts'
 import type { CameraView, HudSnapshot } from '../render/engineApi.ts'
+import CardOverlay from './CardOverlay.tsx'
 
 interface HudProps {
   /** Null until the engine's first snapshot arrives after `startSession()`. */
@@ -231,6 +232,8 @@ export default function Hud({
           </button>
         </div>
       </div>
+
+      <CardOverlay hud={hud} />
 
       {history.length > 0 && (
         <div className="hud-history-strip" aria-label="Recent outcomes">

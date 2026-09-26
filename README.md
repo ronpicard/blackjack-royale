@@ -7,7 +7,7 @@ It plays for credits only. There is no real money, no purchases, and nothing to 
 ## How to play
 
 - Pick a chip from the rack (1, 5, 25, 100 or 500 credits) and click or tap the betting circle to bet. `UNDO`, `CLEAR`, `REBET` (the last hand's bet) and `×2` (double the circle) do what they say.
-- Press `DEAL` once your bet is down. Two cards are dealt to you and two to the dealer, the dealer's second card face down.
+- Press `DEAL` once your bet is down. Two cards are dealt to you and two to the dealer, the dealer's second card face down. As each card lands, a large copy of it fades into a card overlay in the middle of the screen, so every hand is readable at any camera distance; the overlay clears when you start a new bet.
 - If the dealer shows an ace and you can afford it, you're offered insurance for half your bet; it pays 2 to 1 if the dealer has blackjack. The dealer then peeks under an ace or a ten-value card, and a dealer blackjack ends the round at once.
 - On your turn, `HIT`, `STAND`, `DOUBLE` (one more card, hand ends) or `SPLIT` (equal-rank pairs, up to four hands; split aces get one card each). A `HINT` toggle marks the basic-strategy play with a gold glow.
 - The dealer stands on soft 17 and draws to 17 or higher, then every hand is settled: blackjack pays 3 to 2, an ordinary win pays even money, and a push returns your bet.
